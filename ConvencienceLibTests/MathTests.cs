@@ -12,6 +12,7 @@ namespace ConvencienceLibTests {
         [TestCase(-22.3, -55.2, -5.12)]
         [TestCase(0.0001, 0.00001, 0.00011)]
         public void Test_Clamp_IsValue(IComparable value, IComparable min, IComparable max) {
+            Assert.AreEqual(value, Convenience.Math.Clamp(value, min, max));
             Assert.AreEqual(value, value.Clamp(min, max));
         }
 
@@ -23,6 +24,7 @@ namespace ConvencienceLibTests {
         [TestCase(-55.3, -22.2, -5.12)]
         [TestCase(0.0001, 0.001, 0.0011)]
         public void Test_Clamp_IsMin(IComparable value, IComparable min, IComparable max) {
+            Assert.AreEqual(min, Convenience.Math.Clamp(value, min, max));
             Assert.AreEqual(min, value.Clamp(min, max));
         }
 
@@ -35,6 +37,7 @@ namespace ConvencienceLibTests {
         [TestCase(-22.3, -55.2, -25.12)]
         [TestCase(0.0001, 0.00001, 0.00009)]
         public void Test_Clamp_IsMax(IComparable value, IComparable min, IComparable max) {
+            Assert.AreEqual(max, Convenience.Math.Clamp(value, min, max));
             Assert.AreEqual(max, value.Clamp(min, max));
         }
     }
